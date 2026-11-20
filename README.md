@@ -1,2 +1,186 @@
-# image-enhancement-filters-opencv--5
-image-enhancement-filters-opencv-5
+# image-enhancement-filters-opencv-5
+
+## Aim
+
+To write a Python program using OpenCV to apply different smoothing filters (Averaging, Weighted Averaging, Gaussian, Median) and sharpening filters (Laplacian Kernel and Laplacian Operator) for image enhancement, and display each result separately along with the original image for comparison.
+
+---
+
+## The program performs the following operations:
+
+- Read and display an input image  
+- Apply Averaging filter  
+- Apply Weighted Averaging filter  
+- Apply Gaussian filter  
+- Apply Median filter  
+- Apply Laplacian sharpening using kernel  
+- Apply Laplacian operator  
+- Display all outputs for comparison  
+
+---
+
+##  Software Used
+
+- Anaconda – Python 3.7  
+- Jupyter Notebook / VS Code  
+- OpenCV (cv2)  
+- NumPy  
+- Matplotlib  
+
+---
+
+##  Algorithm
+
+### Step 1:
+Import the required libraries: OpenCV, NumPy, and Matplotlib.
+
+### Step 2:
+Read the input image (e.g., `image.jpg`).
+
+### Step 3:
+Convert the image from BGR to RGB format for display.
+
+### Step 4:
+Apply Averaging Filter using `cv2.blur()`.
+
+### Step 5:
+Apply Weighted Averaging Filter using a custom kernel with `cv2.filter2D()`.
+
+### Step 6:
+Apply Gaussian Filter using `cv2.GaussianBlur()`.
+
+### Step 7:
+Apply Median Filter using `cv2.medianBlur()`.
+
+### Step 8:
+Apply Laplacian Sharpening using Kernel with `cv2.filter2D()`.
+
+### Step 9:
+Convert image to grayscale and apply Laplacian Operator using `cv2.Laplacian()`.
+
+### Step 10:
+Display all filtered images using a grid layout for comparison.
+
+---
+
+##  Developed By
+
+- **Name:** janani saraswathi S
+- **Register No:** 212225230110
+
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+img = cv2.imread("flower.png")
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.imshow(img)
+plt.title("Original Image")
+plt.axis("off")
+plt.show()
+```
+1.Averaging Filter:
+```
+avg = cv2.blur(img, (5,5))
+plt.imshow(avg)
+plt.title("Averaging Filter")
+plt.axis("off")
+plt.show()
+```
+2.Weighted Averaging Filter:
+```
+kernel = np.array([[1,2,1],
+                 [2,4,2],
+                 [1,2,1]], np.float32) / 16
+weighted = cv2.filter2D(img, -1, kernel)
+plt.imshow(weighted)
+plt.title("Weighted Averaging Filter")
+plt.axis("off")
+plt.show()
+```
+3.Gaussian Filter:
+```
+gaussian = cv2.GaussianBlur(img, (5,5), 0)
+plt.imshow(gaussian)
+plt.title("Gaussian Filter")
+plt.axis("off")
+plt.show()
+```
+4.Median Filter:
+```
+median = cv2.medianBlur(img, 5)
+plt.imshow(median)
+plt.title("Median Filter")
+plt.axis("off")
+plt.show()
+```
+5.Laplacian Sharpening (Kernel):
+```
+kernel = np.array([[0,-1,0],
+                   [-1,5,-1],
+                   [0,-1,0]])
+sharp = cv2.filter2D(img, -1, kernel)
+plt.imshow(sharp)
+plt.title("Laplacian Kernel")
+plt.axis("off")
+plt.show()
+```
+6.Laplacian Operator
+```
+lap = cv2.Laplacian(img, cv2.CV_64F)
+lap = np.uint8(np.absolute(lap))
+plt.imshow(lap)
+plt.title("Laplacian Operator")
+plt.axis("off")
+plt.show()
+```
+---
+
+##  Output
+
+### original image:
+
+
+<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/a0c30a1c-dd5c-49c0-a050-91cfcd4dbe40" />
+
+
+### Averaging filter:
+
+<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/1e9efc64-dfca-48ac-a62e-72519f8c5377" />
+
+
+### weighted Averaging filter:
+
+<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/5630ef2f-83a7-40e0-9097-04d5757a1480" />
+
+### Gaussian filter:
+
+<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/abffe635-854f-463d-963c-8ab30580d36c" />
+
+
+### Media filter:
+
+<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/709ac596-3c2f-474b-96da-846578472b08" />
+
+
+### laplacian kernel:
+
+
+<<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/ad54c6b1-4c4f-4982-aefe-27186d8a124c" />
+
+
+### laplacian operator:
+
+
+<img width="481" height="410" alt="image" src="https://github.com/user-attachments/assets/aa53db64-efca-4e0c-ac36-93c14e620a05" />
+
+
+
+
+---
+
+##  Result
+
+Thus, smoothing filters and sharpening filters are successfully implemented using OpenCV.
+
+The smoothing filters reduce noise and improve image quality, while sharpening filters enhance edges and details for better feature extraction.
