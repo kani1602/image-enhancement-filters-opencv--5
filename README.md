@@ -65,8 +65,8 @@ Display all filtered images using a grid layout for comparison.
 
 ##  Developed By
 
-- **Name:** janani saraswathi S
-- **Register No:** 212225230110
+- **Name:** KANISHKA V
+- **Register No:** 212224100030
 
 ```
 import cv2
